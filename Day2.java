@@ -34,7 +34,6 @@ public class Day2 {
             newGameLine = new String(newGameLine.substring(0,8));
             int x = Integer.parseInt(newGameLine.replaceAll("\\D+",""));
             sumOfAll += x;
-            System.out.println(x);
         }
         System.out.println(sumOfAll);
     }

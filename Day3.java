@@ -45,9 +45,4 @@ public class Day3 {
         return true;
     }
 
-    static void findSymbol (char checkme){
-        switch (checkme){
-            case "+"
-        }
-    }
 }
