@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Day2 {
     public static void main(String[] args) throws FileNotFoundException {
-        File theOutputFile = new File("output.txt");
+        File theOutputFile = new File("input_day2.txt");
         Scanner theReader = new Scanner(theOutputFile);
 
         ArrayList<String> theGames = new ArrayList<String>();
