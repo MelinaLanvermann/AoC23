@@ -35,81 +35,96 @@ public class Day3 {
                 boolean markerFound = false;
                 if (isNumber(charArray[j][k])) {
                     foundNumber = foundNumber.concat(String.valueOf(charArray[j][k]));
-                    int schematicRow = j;
-                    int schematicCol = k;
-                    for (int c = 0; c < 9; c++) {
+                    for (int c = 0; c < 8; c++) {
+                        int schematicRow = j;
+                        int schematicCol = k;
                         System.out.println("starting to check...");
+                        while (c == 0) {
+                            schematicRow--;
+                            if (schematicRow < 0) {
+                                schematicRow = 0;
+                            }
+                            System.out.println("checking : " + schematicRow + "/" + schematicCol);
+                            if (isSchematicMarker(charArray[schematicRow][schematicCol])) {
+                                markerFound = true;
+                                System.out.println("I found a marker at : " + schematicRow + "/" + schematicCol);
+                                c++;
+                            } else {
+                                c++;
+                            }
+                        }
                         while (c == 1) {
-                            try {
-                                schematicRow = schematicRow-1;
-                                if (isSchematicMarker(charArray[schematicRow][schematicCol])) {
-                                    System.out.println("I have found a marker at : "+schematicRow+"/"+schematicCol);
-                                    markerFound = true;
-                                }
-                            } catch (Exception e) {
+                            schematicCol--;
+                            if (schematicCol < 0) {
+                                schematicCol = 0;
+                            }
+                            System.out.println("checking : " + schematicRow + "/" + schematicCol);
+                            if (isSchematicMarker(charArray[schematicRow][schematicCol])) {
+                                markerFound = true;
+                                System.out.println("I found a marker at : " + schematicRow + "/" + schematicCol);
+                                c++;
+                            } else {
                                 c++;
                             }
                         }
-                        while (c == 2) {
-                            try {
-                                schematicCol= schematicCol-1;
-                                if (isSchematicMarker(charArray[schematicRow][schematicCol])) {
-                                    System.out.println("I have found a marker at : "+schematicRow+"/"+schematicCol);
-                                    markerFound = true;
-                                }
-                            } catch (Exception e) {
+                        while (c > 1 && c < 4) {
+                            schematicRow++;
+                            if (schematicRow > rows - 1) {
+                                schematicRow = rows - 1;
+                            }
+                            System.out.println("checking : " + schematicRow + "/" + schematicCol);
+                            if (isSchematicMarker(charArray[schematicRow][schematicCol])) {
+                                markerFound = true;
+                                System.out.println("I found a marker at : " + schematicRow + "/" + schematicCol);
+                                c++;
+                            } else {
                                 c++;
                             }
                         }
-                        while (c > 2 && c < 5) {
-                            try {
-                                schematicRow = schematicRow+1;
-                                if (isSchematicMarker(charArray[schematicRow][schematicCol])) {
-                                    System.out.println("I have found a marker at : "+schematicRow+"/"+schematicCol);
-                                    markerFound = true;
-                                }
-                            } catch (Exception e) {
+                        while (c > 3 && c < 6) {
+                            schematicCol++;
+                            if (schematicCol > columns - 1) {
+                                schematicCol = columns - 1;
+                            }
+                            System.out.println("checking : " + schematicRow + "/" + schematicCol);
+                            if (isSchematicMarker(charArray[schematicRow][schematicCol])) {
+                                markerFound = true;
+                                System.out.println("I found a marker at : " + schematicRow + "/" + schematicCol);
+                                c++;
+                            } else {
                                 c++;
                             }
                         }
-                        while (c > 4 && c < 7) {
-                            try {
-                                schematicCol = schematicCol+1;
-                                if (isSchematicMarker(charArray[schematicRow][schematicCol])) {
-                                    System.out.println("I have found a marker at : "+schematicRow+"/"+schematicCol);
-                                    markerFound = true;
-                                }
-                            } catch (Exception e) {
-                                c++;
+                        while (c > 5 && c < 8) {
+                            schematicRow--;
+                            if (schematicRow < 0) {
+                                schematicRow = 0;
                             }
-                        }
-                        while (c > 6 && c < 9) {
-                            try {
-                                schematicRow = schematicRow-1;
-                                if (isSchematicMarker(charArray[schematicRow][schematicCol])) {
-                                    System.out.println("I have found a marker at : "+schematicRow+"/"+schematicCol);
-                                    markerFound = true;
-                                }
-                            } catch (Exception e) {
+                            System.out.println("checking : " + schematicRow + "/" + schematicCol);
+                            if (isSchematicMarker(charArray[schematicRow][schematicCol])) {
+                                markerFound = true;
+                                System.out.println("I found a marker at : " + schematicRow + "/" + schematicCol);
+                                c++;
+                            } else {
                                 c++;
                             }
                         }
 
                     }
-                    try{
-                        if (!isNumber(charArray[j][k+1])){
-                            if (markerFound){
+                    try {
+                        if (!isNumber(charArray[j][k + 1])) {
+                            if (markerFound) {
                                 System.out.println("I have found schematic number : " + foundNumber + ".\n The current engine sum is : " + engineSum);
                                 engineSum += Integer.parseInt(foundNumber);
                                 foundNumber = "";
                                 markerFound = false;
                             } else {
                                 System.out.println("A number was found but it is not a schematic number");
-                                foundNumber ="";
+                                foundNumber = "";
                                 markerFound = false;
                             }
                         }
-                    } catch (Exception e){
+                    } catch (Exception e) {
                         j++;
                     }
                 }
