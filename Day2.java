@@ -39,7 +39,7 @@ public class Day2 {
     }
 
     static Boolean hasReds(String checkMe) {
-        Boolean hasNoReds = false;
+        boolean hasNoReds = false;
         int num = 13;
         for (int i = 0; i < checkMe.length(); i++) {
             if (checkMe.contains(num + " red")) {
@@ -52,7 +52,7 @@ public class Day2 {
     }
 
     static Boolean hasGreens(String checkMe) {
-        Boolean hasNoGreen = false;
+        boolean hasNoGreen = false;
         int num = 14;
         for (int i = 0; i < checkMe.length(); i++) {
             if (checkMe.contains(num + " green")) {
@@ -65,7 +65,7 @@ public class Day2 {
     }
 
     static Boolean hasBlues(String checkme) {
-        Boolean hasNoBlue = false;
+        boolean hasNoBlue = false;
         int num = 15;
         for (int i = 0; i < checkme.length(); i++) {
             if (checkme.contains(num + " blue")) {
