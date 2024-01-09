@@ -36,8 +36,11 @@ public class Day3 {
                     number += (int) (Integer.parseInt(String.valueOf(charArray[i][j])) * Math.pow(10, digitCount));
                     digitCount++;
                     if(j == 0){
-                        if (hasSchematicMarker2(j + 1, j + digitCount, i, charArray)) {
+                        if (hasSchematicMarker2(j + 1, j + digitCount - 1, i, charArray)) {
                             System.out.println("Adding :" + number);
+                            if(number == 863){
+                                System.out.println("Params:" + (j+1) + " " + (j+digitCount) + " " + i);
+                            }
                             engineSum += number;
                         }
                         number = 0;
@@ -98,6 +101,7 @@ public class Day3 {
             j--;
         }*/
         System.out.println(engineSum);
+        System.out.println(hasSchematicMarker2(0, 2, 137, charArray));
         System.out.println(Arrays.toString(findSymbols(charArray).toArray()));
     }
 
